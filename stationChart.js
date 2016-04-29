@@ -9,21 +9,17 @@ d3.StationChart = function(){
         chartW = w - m.l - m.r,
         chartH = h - m.t - m.b,
         barWidth = 10,
+        labels = [],
         padding,
         scaleY = d3.scale.ordinal(),
         scaleX = d3.scale.linear(),
-        axisX = d3.svg.axis().orient('top').ticks(5),
-        valueAccessor = function(d){return d;};
+        axisX = d3.svg.axis().orient('top').ticks(3);
 
     var exports = function (_selection) {
         //recalculate width, height, scales, layout if updated
         chartW = w - m.l - m.r;
         chartH = h - m.t - m.b;
-
-        //layout.value(valueAccessor)
-        //    .range(range)
-        //    .bins(bins);
-
+        
         _selection.each(draw);
     }
 
@@ -35,11 +31,12 @@ d3.StationChart = function(){
 
         svgEnter.append('g').attr('transform','translate('+ m.l+','+ m.t+')')
             .attr('class','chart');
+        svgEnter.append('g').attr('transform','translate('+ m.l+','+m.t+')')
+            .attr('class','axis axis-x');
         svgEnter.append('g').attr('class','label');
         svgEnter.append('g').attr('class','value')
             .attr('transform','translate('+ m.l+',0)');
-        svgEnter.append('g').attr('transform','translate('+ m.l+','+m.t+')')
-            .attr('class','axis axis-x');
+
 
         padding = (chartH - barWidth)/(array.length - 1) -barWidth;
 
@@ -49,7 +46,8 @@ d3.StationChart = function(){
         scaleY.domain(array.map(function(d){return d.key}))  //d3.map!!
             .rangeRoundBands([0,chartH], 0.2);  //actually control the padding and barWidth
 
-        axisX.scale(scaleX).tickSize(-chartH);
+        axisX.scale(scaleX).tickSize(-chartH+5)
+            .tickPadding(-2);
 
 
         //draw bar chart
@@ -63,6 +61,7 @@ d3.StationChart = function(){
         bar.exit().remove();
 
         bar.transition()
+            .duration(500)
             .attr('x', 0)
             .attr('y', function(d){return scaleY(d.key)})
             .attr('height', scaleY.rangeBand())
@@ -72,33 +71,36 @@ d3.StationChart = function(){
             .style("fill-opacity", 1)
 
 
+        var stationNameID = d3.map(labels, function(d){return d.id;});
 
-
-        console.log(scaleY.rangeBand());
-
-        //add labels on x-axis
+        //add labels on each bar
         var labelY = svg.select('.label')
             .selectAll('.label-y')
-            .data(array)
+            .data(array);
 
         labelY.enter().append('text')
             .attr('class', 'label-y')
+            //.style("fill-opacity", 0);
 
         labelY.exit().remove();
 
         labelY.transition()
-            .attr('x', m.l)
+            .duration(800)
+            .attr('x', m.l +2)
             .attr('y', function(d){return scaleY(d.key) + scaleY.rangeBand()})
             //.attr('y', function(d,i){ return i*(barWidth + padding)+ m.t +barWidth/2;})
             .attr("dy", ".85em")
-            .attr("text-anchor", "end")
+            .attr("text-anchor", "start")
             .style('font-size', '11px')
-            .style('fill', 'rgb(80,80,80)')
-            .text(function(d){ return d.key });
+            .style('font-weight', '400')
+            .style('fill', 'white')
+            .text(function(d){return stationNameID.get(d.key).fullName;})
 
+
+        //add values
         var value = svg.select('.value')
             .selectAll('.value-x')
-            .data(array)
+            .data(array);
 
         value.enter().append('text')
             .attr('class', 'value-x')
@@ -106,6 +108,7 @@ d3.StationChart = function(){
         value.exit().remove();
 
         value.transition()
+            .duration(500)
             .attr('x', function(d){return scaleX(d.values) - 3;})
             .attr('y', function(d){return scaleY(d.key) + scaleY.rangeBand()})
             .attr("dy", ".85em")
@@ -139,6 +142,11 @@ d3.StationChart = function(){
     exports.barWidth = function(_x){
         if(!arguments.length) return barWidth;
         barWidth = _x;
+        return this;
+    };
+    exports.labels = function(_x){
+        if(!arguments.length) return labels;
+        labels = _x;
         return this;
     };
 
