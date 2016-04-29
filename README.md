@@ -1,4 +1,3 @@
-# hubway-my
+# Hubway Data Visualization
 
-Hubway Data Visualization
 Directionality and Frequency of Trips
