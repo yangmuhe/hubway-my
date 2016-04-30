@@ -346,7 +346,7 @@ function dataLoaded(err, rows, stations, bos, cam, som, bro){
 
     svg.append('rect')
         .attr('x', 460)
-        .attr('y', 570)
+        .attr('y', 650)
         .attr('class','substitle')
         .attr('height', 30)
         .attr('width', 400)
@@ -355,7 +355,7 @@ function dataLoaded(err, rows, stations, bos, cam, som, bro){
             
     svg.append('text')
         .attr('x', 470)
-        .attr('y', 591)
+        .attr('y', 671)
         .text('Boston, Brookline, Cambridge, Somerville')
         .attr("font-family", "serif")
         .attr("font-size", "18px")
