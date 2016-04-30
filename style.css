@@ -3,30 +3,13 @@ html,body{
     position: relative;
 }
 
-/*-------------------Title---------------*/
-.title{
-    width: 50%;
-    position: relative;
-    float:left;
-    margin: 10px 0 15px 0;
-}
-
-.title > h1{
-    padding-top: 5px;
-}
-
-.title > *{
-    position: relative;
-    float: left;
-}
-
 /*-------------------Map---------------*/
 #plot{
     width: 65%;
-    height: 600px;
+    height: 680px;
     position: relative;
     float:left;
-    margin-top: 5px;
+    margin-top: 25px;
 }
 
 .overlay {
@@ -47,31 +30,34 @@ html,body{
     opacity: .8;
 }
 
-/*.neighborhoods{*/
-    /*fill: rgb(200,200,200);*/
-/*}*/
-
 /*-------------------right---------------*/
-#right{
-    float:left;
+.title{
     width: 30%;
-    margin-left: 10px;
-    position:relative;
+    position: relative;
+    float:left;
+    margin: 20px 0 0 10px;
 }
 
 .intro{
     float:left;
-    width: 85%;
-    margin-top: 20px;
+    width: 25%;
+    margin-top: 30px;
     margin-left: 10px;
     position:relative;
 }
 
 .author{
-    margin-top: 8.5%;
+    margin-top: 9%;
     margin-right: 8%;
     width: 20%;
     float: right;
+}
+
+#right{
+    float:left;
+    width: 30%;
+    margin-left: 10px;
+    position:relative;
 }
 
 /*-------------------Module---------------*/
@@ -153,7 +139,6 @@ h1{
     font-weight: 300;
     color: rgb(100,100,100);
     font-family: 'Open Sans', sans-serif;
-    margin-left: 10%;
     margin-bottom: 0;
 }
 
@@ -162,8 +147,7 @@ h2{
     font-weight: 300;
     color: #F27138;
     font-family: 'Open Sans', sans-serif;
-    margin-left: 10%;
-    margin-top: 1.5%;
+    margin-top: 10px;
 }
 
 h3{
