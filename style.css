@@ -1,0 +1,183 @@
+html,body{
+    height: 100%;
+    position: relative;
+}
+
+/*-------------------Title---------------*/
+.title{
+    width: 50%;
+    position: relative;
+    float:left;
+    margin: 10px 0 15px 0;
+}
+
+.title > h1{
+    padding-top: 5px;
+}
+
+.title > *{
+    position: relative;
+    float: left;
+}
+
+/*-------------------Map---------------*/
+#plot{
+    width: 65%;
+    height: 600px;
+    position: relative;
+    float:left;
+    margin-top: 5px;
+}
+
+.overlay {
+    background-color: transparent;
+    pointer-events: all;
+}
+
+.neighborhoods {
+    stroke: #fff;
+    fill: rgb(225,225,225);
+    stroke-linejoin: 'round';
+    stroke-width: .8;
+}
+
+.station_dot {
+    fill: rgb(80,80,80);
+    stroke: none;
+    opacity: .8;
+}
+
+/*.neighborhoods{*/
+    /*fill: rgb(200,200,200);*/
+/*}*/
+
+/*-------------------right---------------*/
+#right{
+    float:left;
+    width: 30%;
+    margin-left: 10px;
+    position:relative;
+}
+
+.intro{
+    float:left;
+    width: 85%;
+    margin-top: 20px;
+    margin-left: 10px;
+    position:relative;
+}
+
+.author{
+    margin-top: 8.5%;
+    margin-right: 8%;
+    width: 20%;
+    float: right;
+}
+
+/*-------------------Module---------------*/
+#chart{
+    width: 100%;
+    position:relative;
+    margin-top: 10px;
+    background-color: white;
+}
+
+.plot{
+    position:relative;
+    width: 100%;
+    height: 300px;
+    float:left;
+    margin: 10px 0 0;
+}
+    .plot .bar{
+        fill: #F2B885;
+    }
+
+
+.axis .domain{
+    display:none;
+}
+.axis line{
+    stroke: white;
+    stroke-width: 0.8;
+    opacity: 0.9;
+}
+.axis .tick text{
+    font-size: 10px;
+    color: rgb(220,220,220);
+}
+
+.label .label-y text{
+    stroke: none;
+    font-size: 11px;
+    font-weight: 100;
+}
+
+.value .value-x text{
+    stroke: none;
+    font-size: 10px;
+}
+
+/*--------------drop-down + button--------------*/
+
+.drop-down .select{
+    float:left;
+    width:45%;
+    margin:0 5% 0 0;
+}
+.drop-down .select option{
+    font-size: 12px;
+}
+
+.btn-group .station{
+    float:left;
+    font-size: 12px;
+    font-weight: 500;
+    color: rgb(100,100,100);
+    font-family: 'Open Sans', sans-serif;
+    margin-right: 3px;
+}
+
+.btn-group .time{
+    float:left;
+    font-size: 12px;
+    font-weight: 500;
+    color: rgb(100,100,100);
+    font-family: 'Open Sans', sans-serif;
+    margin-right: 3px;
+}
+
+/*--------------font--------------*/
+h1{
+    font-size: 25px;
+    font-weight: 300;
+    color: rgb(100,100,100);
+    font-family: 'Open Sans', sans-serif;
+    margin-left: 10%;
+    margin-bottom: 0;
+}
+
+h2{
+    font-size:16px;
+    font-weight: 300;
+    color: #F27138;
+    font-family: 'Open Sans', sans-serif;
+    margin-left: 10%;
+    margin-top: 1.5%;
+}
+
+h3{
+    font-size: 10px;
+    font-weight: 300;
+    color: rgb(150,150,150);
+    font-family: 'Open Sans', sans-serif;
+    line-height: 150%;
+    margin-top: 0;
+}
+
+p{
+    font-size: 11px;
+    font-weight: 300;
+    color: rgb(120,120,120);
+    font-family: 'Open Sans', sans-serif;
+}
